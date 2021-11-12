@@ -1,0 +1,13 @@
+.dashboard-links {
+  background-image: linear-gradient(to top, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+  height: 100vh;
+}
+.dashboard-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 800;
+}
+.dashboard-links a button {
+  font-weight: 800;
+}

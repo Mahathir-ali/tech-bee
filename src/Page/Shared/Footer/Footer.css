@@ -1,0 +1,15 @@
+.footer {
+  background-color: #383533;
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+.location {
+  font-size: 25px;
+  margin-right: 10px;
+  color: rgb(190, 134, 30);
+}
