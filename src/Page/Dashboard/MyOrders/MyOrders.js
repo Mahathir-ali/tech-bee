@@ -17,13 +17,15 @@ const MyOrders = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user.email}`)
+    fetch(
+      `https://shielded-anchorage-63737.herokuapp.com/orders?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [control, user.email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

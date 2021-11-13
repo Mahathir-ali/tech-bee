@@ -46,7 +46,9 @@ const Product = ({ item }) => {
               </span>
             </Typography>
             <Link to={`/details/${_id}`}>
-              <Button variant="contained">Buy Now</Button>
+              <Button variant="contained">
+                <i className="fas fa-shopping-cart"></i>Buy Now
+              </Button>
             </Link>
           </Box>
         </Paper>

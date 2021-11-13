@@ -9,7 +9,7 @@ import Header from "../../Shared/Header/Header";
 
 const Register = () => {
   const [registerData, setRegisterData] = useState({});
-  const { registerUser } = useAuth();
+  const { registerUser, signInWithGoogle } = useAuth();
   const history = useHistory();
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -114,6 +114,7 @@ const Register = () => {
 
           <p>----------------OR-----------------</p>
           <Button
+            onClick={signInWithGoogle}
             style={{
               border: "1px solid #000",
               borderRadius: "30px",

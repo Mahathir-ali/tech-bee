@@ -9,7 +9,7 @@ import logo from "../../../Images/logo.png";
 
 const Login = () => {
   const [logInData, setLoginData] = useState({});
-  const { logInUser, user } = useAuth();
+  const { logInUser, user, signInWithGoogle } = useAuth();
   const history = useHistory();
   const location = useLocation();
   const handleOnBlur = (e) => {
@@ -87,6 +87,7 @@ const Login = () => {
 
           <p>----------------OR-----------------</p>
           <Button
+            onClick={signInWithGoogle}
             style={{
               border: "1px solid #000",
               borderRadius: "30px",

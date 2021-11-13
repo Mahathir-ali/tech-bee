@@ -14,7 +14,7 @@ const Details = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.status = "Pending";
-    fetch("http://localhost:5000/orders", {
+    fetch("https://shielded-anchorage-63737.herokuapp.com/orders", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -29,7 +29,7 @@ const Details = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProduct/${id}`)
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/${id}`)
       .then((res) => res.json())
       .then((data) => setDetail(data));
   }, [id]);

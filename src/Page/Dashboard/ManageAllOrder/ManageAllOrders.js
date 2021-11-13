@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
   const [control, setControl] = useState(false);
   //   console.log(status);
   useEffect(() => {
-    fetch(`http://localhost:5000/allOrders`)
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/allOrders`)
       .then((res) => res.json())
       .then((data) => setAllOrder(data));
   }, [control]);
@@ -30,7 +30,7 @@ const ManageAllOrders = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -45,7 +45,7 @@ const ManageAllOrders = () => {
 
   const onSubmit = (data) => {
     console.log(data, orderId);
-    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/${orderId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -61,14 +61,13 @@ const ManageAllOrders = () => {
     <>
       <h1>All Orders</h1>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ me: "20px" }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>E-mail (Name)</TableCell>
               <TableCell align="right">Product Name</TableCell>
               <TableCell align="right">Price</TableCell>
               <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Update </TableCell>
               <TableCell align="right">Delete</TableCell>
             </TableRow>
           </TableHead>
@@ -96,9 +95,9 @@ const ManageAllOrders = () => {
                     <input type="submit" />
                   </form>
                 </td>
-                <TableCell align="right">
+                {/* <TableCell align="right">
                   <Button>Update</Button>
-                </TableCell>
+                </TableCell> */}
                 <TableCell align="right">
                   <Button
                     style={{ color: "red" }}

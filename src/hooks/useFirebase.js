@@ -3,12 +3,16 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Page/Login/Firebase/firebase.init";
 
 initializeAuthentication();
+const googleProvider = new GoogleAuthProvider();
+
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -25,12 +29,30 @@ const useFirebase = () => {
         const newUser = { email, displayName: name };
         setUser(newUser);
         //set user to db
-        saveUsersToDataBase(email, name);
+        saveUsersToDataBase(email, name, "POST");
       })
       .catch((error) => {
         setError(error.message);
         console.log(error);
         history.push("/");
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  //google signIn
+  const signInWithGoogle = (location, history) => {
+    setIsLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        saveUsersToDataBase(user.email, user.displayName, "PUT");
+        setError("");
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+      })
+      .catch((error) => {
+        setError(error.message);
       })
       .finally(() => setIsLoading(false));
   };
@@ -70,15 +92,15 @@ const useFirebase = () => {
   };
   //admin checking
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
-  const saveUsersToDataBase = (email, displayName) => {
+  const saveUsersToDataBase = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
-      method: "POST",
+    fetch("https://shielded-anchorage-63737.herokuapp.com/users", {
+      method: method,
       headers: { "content-type": "application/json" },
       body: JSON.stringify(user),
     }).then();
@@ -91,6 +113,7 @@ const useFirebase = () => {
     logInUser,
     logOut,
     isLoading,
+    signInWithGoogle,
   };
 };
 

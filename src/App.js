@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
+import ContactUs from "./Page/ContactUs/ContactUs";
 import Dashboard from "./Page/Dashboard/Dashboard/Dashboard";
 import Details from "./Page/Details/Details";
 import Home from "./Page/Home/Home/Home";
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/contact">
+              <ContactUs></ContactUs>
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>

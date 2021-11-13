@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Nunito:ital,wght@0,300;0,600;1,400&family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+body {
+  font-family: "Nunito", "Dancing Script", sans-serif, cursive;
+  background-color: rgba(241, 236, 236, 0.041);
+}
+
 .App {
   text-align: center;
 }

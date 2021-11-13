@@ -6,7 +6,7 @@ import Header from "../Shared/Header/Header";
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://shielded-anchorage-63737.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

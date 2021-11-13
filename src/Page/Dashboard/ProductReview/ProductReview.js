@@ -17,7 +17,7 @@ const ProductReview = () => {
   const handleAddReview = (e) => {
     const reviews = { ...review };
     // console.log(products);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://shielded-anchorage-63737.herokuapp.com/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(reviews),

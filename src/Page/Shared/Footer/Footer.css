@@ -1,6 +1,8 @@
 .footer {
   background-color: #383533;
   color: #fff;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 .footer a {

@@ -72,6 +72,21 @@ const Header = () => {
               <Link to="/productPage">All Product</Link>
               {user?.email && <Link to="/dashboard">Dashboard</Link>}
               <Link to="/contact">Contact Us</Link>
+              {user?.email && (
+                <span>
+                  {" "}
+                  <img
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                    }}
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </span>
+              )}
+              {user?.email && <Link>{user?.displayName}</Link>}
               {user?.email ? (
                 <Link to="/">
                   <Button

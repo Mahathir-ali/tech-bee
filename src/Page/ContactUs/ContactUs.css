@@ -1,0 +1,40 @@
+.contact_body p {
+  text-align: center;
+  color: gray;
+}
+
+.textarea {
+  width: 600px;
+}
+
+.inputs {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.input {
+  margin-top: 20px;
+  width: 300px;
+  margin-right: 10px;
+}
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.space {
+  margin-left: 20px;
+}
+.btn {
+  background-color: #53c87e;
+  color: #fff;
+  margin-right: 10px;
+  padding: 8px 25px;
+}
+.send-btn {
+  text-align: center;
+  margin-bottom: 50px;
+  overflow-y: hidden;
+}
