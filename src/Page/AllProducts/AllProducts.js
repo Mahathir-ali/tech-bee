@@ -16,7 +16,12 @@ const AllProducts = () => {
   return (
     <>
       <Container sx={{ mt: 5 }}>
-        <Typography variant="h2">Our Products</Typography>
+        <Typography
+          variant="h2"
+          style={{ opacity: ".5", marginBottom: "20px" }}
+        >
+          Our Products
+        </Typography>
         <Grid container spacing={4}>
           {items.map((item) => (
             <Product key={item._id} item={item}></Product>

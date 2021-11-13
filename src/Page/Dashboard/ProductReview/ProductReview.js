@@ -36,7 +36,7 @@ const ProductReview = () => {
       <Container>
         {addSuccessful && (
           <Alert severity="success">
-            Review Successfully<i className="far fa-smile-beam"></i>
+            Review Successful.<i className="far fa-smile-beam"></i>
           </Alert>
         )}
         <Box>
@@ -76,6 +76,16 @@ const ProductReview = () => {
             <TextField
               sx={{ width: "300px", mb: 3 }}
               id="standard-basic"
+              label="Your Image URL"
+              type="url"
+              name="img"
+              onBlur={handleOnBlur}
+              variant="standard"
+            />
+            <br />
+            <TextField
+              sx={{ width: "300px", mb: 3 }}
+              id="standard-basic"
               label="Rating"
               name="rating"
               onBlur={handleOnBlur}
@@ -86,8 +96,8 @@ const ProductReview = () => {
             <br />
             <Button
               style={{
-                backgroundColor: "#F63E7B",
-                color: "#FFF",
+                background: " linear-gradient(#56CCF2, #78ffd6)",
+                color: "#000",
                 width: "30%",
               }}
               type="submit"

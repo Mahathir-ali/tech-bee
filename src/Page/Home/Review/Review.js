@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./Review.css";
 import { Card, Carousel, Container } from "react-bootstrap";
 import userImg from "../../../Images/user.jpg";
-import useAuth from "../../../hooks/useAuth";
 import Rating from "react-rating";
 import { Typography } from "@mui/material";
 const Review = () => {
-  const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch("https://shielded-anchorage-63737.herokuapp.com/getReviews")
@@ -21,8 +19,8 @@ const Review = () => {
       <Carousel>
         {reviews.map((review) => (
           <Carousel.Item interval={1000} key={review._id}>
-            {user.photoURL ? (
-              <Card.Img variant="top" className="review" src={user.PhotoURL} />
+            {review.img ? (
+              <Card.Img variant="top" className="review" src={review.img} />
             ) : (
               <Card.Img variant="top" className="review" src={userImg} />
             )}

@@ -81,9 +81,10 @@ const AddProduct = () => {
             <br />
             <Button
               style={{
-                backgroundColor: "#F63E7B",
-                color: "#FFF",
+                background: " linear-gradient(#56CCF2, #78ffd6)",
+                color: "#000",
                 width: "30%",
+                marginRight: "5px",
               }}
               type="submit"
             >

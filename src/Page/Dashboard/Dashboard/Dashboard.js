@@ -41,7 +41,7 @@ function Dashboard(props) {
       ) : (
         <img className="user_img" src={userImg} alt="" />
       )}
-      <Typography variant="h6">{user.email}</Typography>
+      <Typography variant="caption">{user.email}</Typography>
       <Box className="appbar_Text">
         <Button onClick={logOut} className="logOut-btn">
           Log out

@@ -1,7 +1,7 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import logo from "../../../Images/logo.png";
 import googleLogo from "../../../Images/Group 573.png";
@@ -11,6 +11,7 @@ const Register = () => {
   const [registerData, setRegisterData] = useState({});
   const { registerUser, signInWithGoogle } = useAuth();
   const history = useHistory();
+  const location = useLocation();
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -30,6 +31,9 @@ const Register = () => {
       history
     );
     e.preventDefault();
+  };
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(location, history);
   };
 
   return (
@@ -73,6 +77,7 @@ const Register = () => {
               type="email"
             />
             <br />
+
             <TextField
               sx={{ width: "300px", mb: 3 }}
               id="standard-basic"
@@ -95,8 +100,8 @@ const Register = () => {
             <br />
             <Button
               style={{
-                backgroundColor: "#F63E7B",
-                color: "#FFF",
+                background: " linear-gradient(#56CCF2, #78ffd6)",
+                color: "#000",
                 width: "100%",
               }}
               type="submit"
@@ -114,7 +119,7 @@ const Register = () => {
 
           <p>----------------OR-----------------</p>
           <Button
-            onClick={signInWithGoogle}
+            onClick={handleGoogleSignIn}
             style={{
               border: "1px solid #000",
               borderRadius: "30px",
@@ -123,7 +128,7 @@ const Register = () => {
             }}
           >
             <img
-              style={{ width: "10%", paddingRight: "30px" }}
+              style={{ width: "20%", paddingRight: "30px" }}
               src={googleLogo}
               alt=""
             />

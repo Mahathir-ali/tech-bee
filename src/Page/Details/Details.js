@@ -29,7 +29,7 @@ const Details = () => {
   };
 
   useEffect(() => {
-    fetch(`https://shielded-anchorage-63737.herokuapp.com/${id}`)
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/singleProduct/${id}`)
       .then((res) => res.json())
       .then((data) => setDetail(data));
   }, [id]);
@@ -37,11 +37,10 @@ const Details = () => {
     <div>
       <Header></Header>
       <Container>
-        <h1>Welcome</h1>
+        <h1>Place Your Order here</h1>
         {order && (
           <Alert severity="success">
-            Order Successfully.<i className="far fa-smile-beam"></i> Check your
-            order on My orders page.
+            Order Placed Successfully.<i className="far fa-smile-beam"></i>{" "}
           </Alert>
         )}
         <Grid style={{ margin: "auto" }} container spacing={4}>

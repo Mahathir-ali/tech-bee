@@ -47,7 +47,13 @@ const Products = ({ product }) => {
               </span>
             </Typography>
             <Link to={`/details/${_id}`}>
-              <Button variant="contained">
+              <Button
+                style={{
+                  background: " linear-gradient(#56CCF2, #78ffd6)",
+                  color: "#000",
+                }}
+                variant="contained"
+              >
                 <i className="fas fa-shopping-cart"></i>Buy Now
               </Button>
             </Link>

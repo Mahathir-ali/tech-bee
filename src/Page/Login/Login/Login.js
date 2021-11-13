@@ -24,7 +24,9 @@ const Login = () => {
     logInUser(logInData.email, logInData.password, location, history);
     e.preventDefault();
   };
-
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(location, history);
+  };
   return (
     <>
       <Container>
@@ -68,8 +70,8 @@ const Login = () => {
             <br />
             <Button
               style={{
-                backgroundColor: "#F63E7B",
-                color: "#FFF",
+                background: " linear-gradient(#56CCF2, #78ffd6)",
+                color: "#000",
                 width: "100%",
               }}
               type="submit"
@@ -87,7 +89,7 @@ const Login = () => {
 
           <p>----------------OR-----------------</p>
           <Button
-            onClick={signInWithGoogle}
+            onClick={handleGoogleSignIn}
             style={{
               border: "1px solid #000",
               borderRadius: "30px",
@@ -96,7 +98,7 @@ const Login = () => {
             }}
           >
             <img
-              style={{ width: "10%", paddingRight: "30px" }}
+              style={{ width: "20%", paddingRight: "30px" }}
               src={googleLogo}
               alt=""
             />

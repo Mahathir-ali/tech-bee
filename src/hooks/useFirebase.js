@@ -92,7 +92,7 @@ const useFirebase = () => {
   };
   //admin checking
   useEffect(() => {
-    fetch(`https://shielded-anchorage-63737.herokuapp.com/${user.email}`)
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
