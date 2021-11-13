@@ -1,5 +1,5 @@
 .dashboard-links {
-  background-image: linear-gradient(to top, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+  background-image: linear-gradient(to top, #f5e8bf, #9ff5be);
   height: 100vh;
 }
 .dashboard-links a {
@@ -9,5 +9,28 @@
   font-weight: 800;
 }
 .dashboard-links a button {
-  font-weight: 800;
+  font-weight: 700;
+}
+.bar {
+  background-color: #53c87e !important;
+}
+.appbar_Text {
+  text-align: center !important;
+}
+
+.user_img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.logOut-btn {
+  background-color: #ffd54b !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+}
+h6 {
+  padding: 10px;
+  padding-top: 15px;
 }

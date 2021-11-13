@@ -14,14 +14,21 @@ import { Button } from "@mui/material";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddProduct from "../AddProduct/AddProduct";
-import AllProducts from "../../AllProducts/AllProducts";
+import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../../AdminRoute/AdminRoute";
+import MyOrders from "../MyOrders/MyOrders";
+import ManageAllOrders from "../ManageAllOrder/ManageAllOrders";
+import ProductReview from "../ProductReview/ProductReview";
+import Payment from "../Payment/Payment";
+import userImg from "../../../Images/user.jpg";
+
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-
+  const { user, admin, logOut } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -29,20 +36,57 @@ function Dashboard(props) {
   const drawer = (
     <div className="dashboard-links">
       <Toolbar />
+      {user.photoURL ? (
+        <img className="user_img" src={user.photoURL} alt="" />
+      ) : (
+        <img className="user_img" src={userImg} alt="" />
+      )}
+      <Typography variant="h6">{user.email}</Typography>
+      <Box className="appbar_Text">
+        <Button onClick={logOut} className="logOut-btn">
+          Log out
+        </Button>
+      </Box>
       <Divider />
-      <Link to="/productPage">
-        <Button color="inherit">All Product</Button>
-      </Link>
-      <Link to={`${url}`}>
-        <Button color="inherit">Dashboard</Button>
-      </Link>
-      <Box>
-        <Link to={`${url}/makeAdmin`}>
-          <Button color="inherit">Make Admin</Button>
+      <Box sx={{ my: 5 }}>
+        <Link to="/productPage">
+          <Button sx={{ mb: 3 }} color="inherit">
+            All Product
+          </Button>
         </Link>
-        <Link to={`${url}/addProduct`}>
-          <Button color="inherit">ADD Product</Button>
+        <Link to={`${url}`}>
+          <Button sx={{ mb: 3 }} color="inherit">
+            My Orders
+          </Button>
         </Link>
+        <Link to={`${url}/productReview`}>
+          <Button sx={{ mb: 3 }} color="inherit">
+            Review Product
+          </Button>
+        </Link>
+        <Link to={`${url}/payment`}>
+          <Button color="inherit">Make Payment</Button>
+        </Link>
+        {admin && (
+          <Box sx={{ my: 5 }}>
+            <Divider />
+            <h6>ADMIN PANEL</h6>
+            <Divider />
+            <Link to={`${url}/makeAdmin`}>
+              <Button sx={{ mb: 3 }} color="inherit">
+                Make Admin
+              </Button>
+            </Link>
+            <Link to={`${url}/addProduct`}>
+              <Button sx={{ mb: 3 }} color="inherit">
+                ADD Product
+              </Button>
+            </Link>
+            <Link to={`${url}/manageOrder`}>
+              <Button color="inherit">ALL Order</Button>
+            </Link>
+          </Box>
+        )}
       </Box>
     </div>
   );
@@ -54,6 +98,7 @@ function Dashboard(props) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
+        className="bar"
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -70,7 +115,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" component="div">
             Dashboard
           </Typography>
         </Toolbar>
@@ -123,14 +168,23 @@ function Dashboard(props) {
         <Toolbar />
         <Switch>
           <Route exact path={path}>
-            <AllProducts></AllProducts>
+            <MyOrders></MyOrders>
           </Route>
-          <Route path={`${path}/makeAdmin`}>
+          <Route exact path={`${path}/productReview`}>
+            <ProductReview></ProductReview>
+          </Route>
+          <Route exact path={`${path}/payment`}>
+            <Payment></Payment>
+          </Route>
+          <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path={`${path}/addProduct`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageOrder`}>
+            <ManageAllOrders></ManageAllOrders>
+          </AdminRoute>
+          <AdminRoute path={`${path}/addProduct`}>
             <AddProduct></AddProduct>
-          </Route>
+          </AdminRoute>
         </Switch>
       </Box>
     </Box>

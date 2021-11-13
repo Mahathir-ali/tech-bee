@@ -5,3 +5,12 @@
   font-weight: 600;
   color: black;
 }
+
+.fa-sign-out-alt {
+  color: #fff;
+  margin-left: 5px;
+}
+.fa-sign-in-alt {
+  color: black;
+  margin-left: 5px;
+}

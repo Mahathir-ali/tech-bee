@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Container, Box, TextField, Button, Alert } from "@mui/material";
+import useAuth from "../../../hooks/useAuth";
 const ProductReview = () => {
   const [review, setReview] = useState({});
   const [addSuccessful, setAddSuccessful] = useState(false);
+  const { user } = useAuth();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -15,7 +17,7 @@ const ProductReview = () => {
   const handleAddReview = (e) => {
     const reviews = { ...review };
     // console.log(products);
-    fetch("http://localhost:5000/products", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(reviews),
@@ -34,7 +36,7 @@ const ProductReview = () => {
       <Container>
         {addSuccessful && (
           <Alert severity="success">
-            Product Added Successfully<i className="far fa-smile-beam"></i>
+            Review Successfully<i className="far fa-smile-beam"></i>
           </Alert>
         )}
         <Box>
@@ -42,9 +44,10 @@ const ProductReview = () => {
             <TextField
               sx={{ width: "300px", mb: 3, mt: 3 }}
               id="standard-basic"
-              label="Product Name"
+              // label="Product Name"
               variant="standard"
-              name="name"
+              value={user?.email}
+              name="email"
               onBlur={handleOnBlur}
               type="text"
             />
@@ -52,32 +55,34 @@ const ProductReview = () => {
             <TextField
               sx={{ width: "300px", mb: 3, mt: 3 }}
               id="standard-basic"
-              label="Product Description"
+              label="Type Your Name"
               variant="standard"
-              name="description"
+              name="name"
               onBlur={handleOnBlur}
               type="text"
             />
             <br />
             <TextField
               sx={{ width: "300px", mb: 3 }}
-              id="standard-basic"
-              label="Product Price"
-              name="price"
+              id="filled-textarea"
+              label="Description"
+              multiline
+              name="description"
+              maxRows={4}
               onBlur={handleOnBlur}
-              variant="standard"
-              type="number"
+              variant="filled"
             />
             <br />
             <TextField
               sx={{ width: "300px", mb: 3 }}
               id="standard-basic"
-              label="Image URL"
-              name="img"
+              label="Rating"
+              name="rating"
               onBlur={handleOnBlur}
               variant="standard"
-              type="url"
+              // type="number"
             />
+
             <br />
             <Button
               style={{
@@ -87,7 +92,7 @@ const ProductReview = () => {
               }}
               type="submit"
             >
-              <i className="fas fa-plus"></i> ADD
+              Review
             </Button>
           </form>
         </Box>

@@ -1,0 +1,26 @@
+.media_banner {
+  background: url("../../../Images/banner/social-banner.png");
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.644);
+  background-blend-mode: darken, luminosity;
+}
+
+.media_title {
+  color: #fff;
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+.media-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-icon img {
+  width: 30px;
+  margin-top: 30px;
+  margin-left: 20px;
+}

@@ -39,7 +39,7 @@ const Header = () => {
   const { resNav, navItems } = useStyle();
 
   return (
-    <>
+    <Box style={{ margin: "auto", width: "1200px" }}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           style={{ backgroundColor: "#FFF", color: "#000" }}
@@ -78,13 +78,13 @@ const Header = () => {
                     onClick={logOut}
                     style={{ backgroundColor: "#fab23e", color: "#FFF" }}
                   >
-                    Log out
+                    Log out <i className="fas fa-sign-out-alt"></i>
                   </Button>
                 </Link>
               ) : (
                 <Link to="/login">
                   <Button style={{ backgroundColor: "#fab23e", color: "#FFF" }}>
-                    Login
+                    Login <i className="fas fa-sign-in-alt"></i>
                   </Button>
                 </Link>
               )}
@@ -121,17 +121,23 @@ const Header = () => {
                       <Link to="/">
                         <Button
                           onClick={logOut}
-                          style={{ backgroundColor: "#fab23e", color: "#FFF" }}
+                          style={{
+                            backgroundColor: "#fab23e",
+                            color: "#FFF",
+                          }}
                         >
-                          Log out
+                          Log out<i className="fas fa-sign-out-alt"></i>
                         </Button>
                       </Link>
                     ) : (
                       <Link to="/login">
                         <Button
-                          style={{ backgroundColor: "#fab23e", color: "#FFF" }}
+                          style={{
+                            backgroundColor: "#fab23e",
+                            color: "#FFF",
+                          }}
                         >
-                          Login
+                          <i className="fas fa-sign-in-alt"></i> Login
                         </Button>
                       </Link>
                     )}
@@ -143,7 +149,7 @@ const Header = () => {
           </Drawer>
         </React.Fragment>
       </div>
-    </>
+    </Box>
   );
 };
 

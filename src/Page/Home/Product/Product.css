@@ -1,3 +1,26 @@
-.paper_body:hover {
-  box-shadow: 8px 5px 8px 5px rgba(0, 0, 0, 0.144);
+.paper .card-img {
+  overflow: hidden;
+}
+.card-img > img {
+  display: block;
+  width: 100%;
+  /* max-width: 200px; */
+  aspect-ratio: 20/15;
+  /* object-fit: cover; */
+  /* object-position: center; */
+  transition: 200ms transform ease-in-out;
+}
+.paper:hover > .card-img > img {
+  transform: scale(1.055);
+}
+
+.paper > .card-body {
+  text-align: left;
+  padding: 0.55em;
+}
+.paper:hover {
+  box-shadow: 2px 0px 8px 8px rgba(0, 0, 0, 0.068);
+}
+.card-body {
+  padding-top: 0.45em;
 }

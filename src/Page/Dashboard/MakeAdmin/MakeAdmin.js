@@ -1,17 +1,35 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Alert } from "@mui/material";
 import React, { useState } from "react";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleOnBlur = (e) => {
     setEmail(e.target.value);
   };
 
+  const handleAdminSubmit = (e) => {
+    const user = { email };
+    fetch("http://localhost:5000/users/admin", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setEmail("");
+          setSuccess(true);
+        }
+      });
+    e.preventDefault();
+  };
+
   return (
     <div>
       <h2>Make An Admin</h2>
-
+      {success && <Alert severity="success">Made Admin Successfully!</Alert>}
       <form onSubmit={handleAdminSubmit}>
         <TextField
           sx={{ width: "30%", mb: 3 }}

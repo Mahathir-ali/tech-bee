@@ -13,6 +13,7 @@ const Details = () => {
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    data.status = "Pending";
     fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -31,7 +32,7 @@ const Details = () => {
     fetch(`http://localhost:5000/singleProduct/${id}`)
       .then((res) => res.json())
       .then((data) => setDetail(data));
-  }, []);
+  }, [id]);
   return (
     <div>
       <Header></Header>

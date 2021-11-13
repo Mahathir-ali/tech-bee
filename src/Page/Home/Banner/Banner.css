@@ -4,6 +4,37 @@
   /* background-position: 330px; */
   height: 500px;
   width: 100wh;
-  background-color: rgba(22, 51, 87, 0.5);
+  background-color: rgba(22, 51, 87, 0.644);
   background-blend-mode: darken, luminosity;
+}
+.banner_title {
+  color: #fff;
+  padding-top: 50px;
+}
+
+.fa-angle-double-down {
+  margin-top: 30px;
+  color: #fff;
+  font-size: 1.25em;
+}
+.animate__animated.animate__slideInDown {
+  --animate-duration: 0.6s;
+}
+.explore-btn {
+  margin-top: 10px !important;
+  background: #fff !important;
+  color: black !important;
+  font-weight: 700 !important;
+}
+
+.fa-chevron-right {
+  margin-top: 0;
+  margin-left: 10px;
+  color: black;
+  text-align: center;
+  /* margin-bottom: 28px; */
+}
+
+a {
+  text-decoration: none;
 }

@@ -1,0 +1,12 @@
+.order {
+  display: flex;
+}
+.paper_body {
+  height: 300px;
+}
+.order .order-detail {
+  padding: 10px;
+}
+.order-detail .btn {
+  background-color: black;
+}

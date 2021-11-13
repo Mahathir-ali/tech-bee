@@ -1,0 +1,14 @@
+.review {
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+.slider {
+  margin: auto;
+  border: none;
+  margin-bottom: 55px;
+}
+.fa-star {
+  color: gold;
+}

@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
 import Product from "../Home/Product/Product";
@@ -16,6 +16,7 @@ const AllProducts = () => {
   return (
     <>
       <Container sx={{ mt: 5 }}>
+        <Typography variant="h2">Our Products</Typography>
         <Grid container spacing={4}>
           {items.map((item) => (
             <Product key={item._id} item={item}></Product>
