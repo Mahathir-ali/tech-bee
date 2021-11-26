@@ -25,7 +25,7 @@ const MyOrders = () => {
   }, [control, user.email]);
 
   const handleDelete = (id) => {
-    fetch(`https://shielded-anchorage-63737.herokuapp.com/${id}`, {
+    fetch(`https://shielded-anchorage-63737.herokuapp.com/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

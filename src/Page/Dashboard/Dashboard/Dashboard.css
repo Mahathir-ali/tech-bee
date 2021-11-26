@@ -1,10 +1,11 @@
 .dashboard-links {
-  background-image: linear-gradient(to top, #f5e8bf, #9ff5be);
+  background: purple;
   height: 100vh;
+  color: #fff;
 }
 .dashboard-links a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   font-size: 20px;
   font-weight: 800;
 }
@@ -12,7 +13,7 @@
   font-weight: 700;
 }
 .bar {
-  background-color: #53c87e !important;
+  background-color: rgba(95, 3, 95, 0.911) !important;
 }
 .appbar_Text {
   text-align: center !important;
@@ -25,8 +26,8 @@
 }
 
 .logOut-btn {
-  background-color: #ffd54b !important;
-  color: #000 !important;
+  background-color: purple !important;
+  color: #fff !important;
   font-weight: 700 !important;
   margin-bottom: 10px !important;
 }
